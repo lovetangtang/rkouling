@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title></title>
 </head>
+
 <body>
-  <div>首页糖糖...</div>
-  <dd>ddd</dd>
+  <script src="./cax.js"></script>
+  <script src="./to.js"></script>
+  <script>
+    var stage = new cax.Stage(800, 800, 'body')
+    var bitmap = new cax.Bitmap('./wepay-diy.jpg', function () {
+
+
+    })
+
+
+    var bitmap1 = bitmap;
+    bitmap1.x = 150
+    bitmap1.y = 200
+    bitmap1.originX = 120
+    bitmap1.originY = 40
+    bitmap1.cursor = 'pointer'
+    stage.add(bitmap1)
+    var x_py=10;
+    var y_py=10;
+    cax.setInterval(() => {
+      x_py-=10;
+      y_py-=12;
+      bitmap1.originX = x_py
+      bitmap1.originY = y_py
+      bitmap1.originY=y_py;
+      stage.update()
+    }, 1000)
+  </script>
 </body>
+
 </html>
