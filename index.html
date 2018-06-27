@@ -11,8 +11,13 @@
   <script>
     var stage = new cax.Stage(800, 800, 'body')
     var bitmap = new cax.Bitmap('./wepay-diy.jpg', function () {
+      var eio = To.easing.elasticInOut
+      To.get(bitmap).animate('rubber').start()
+    })
 
-
+    var bitmap2 = new cax.Bitmap('./wepay-diy.jpg', function () {
+      var eio = To.easing.elasticInOut
+      To.get(bitmap2).animate('rubber').start()
     })
 
 
@@ -22,17 +27,34 @@
     bitmap1.originX = 120
     bitmap1.originY = 40
     bitmap1.cursor = 'pointer'
+
+    var bitmap2 = bitmap2;
+    bitmap2.x = 150
+    bitmap2.y = 300
+    bitmap2.originX = 80
+    bitmap2.originY = 30
+    bitmap2.cursor = 'pointer'
+
     stage.add(bitmap1)
-    var x_py=10;
-    var y_py=10;
+    stage.add(bitmap2)
+
+    bitmap.on('click', () => {
+      alert('wepay')
+    })
+    var x_py = 10;
+    var y_py = 10;
     cax.setInterval(() => {
-      x_py-=10;
-      y_py-=12;
+      x_py -= 1;
+      y_py -= 1;
       bitmap1.originX = x_py
-      bitmap1.originY = y_py
-      bitmap1.originY=y_py;
+      // bitmap1.originY = y_py
+      // bitmap1.originY=y_py;
+
+      bitmap2.originX = x_py
+      // bitmap2.originY = y_py
+      // bitmap2.originY=y_py;
       stage.update()
-    }, 1000)
+    }, 100)
   </script>
 </body>
 
