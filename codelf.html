@@ -12,8 +12,10 @@
   <textarea id="seaval" placeholder="请输入要查询的关键字"></textarea>
   <button onclick="fun_send()">确认查询</button>
   <div id="res" style="font-size: 1.3em;color: mediumslateblue"></div>
+  <div id="rqres" style="font-size: 1.3em;color:palevioletred"></div>
   <script>
     var res = document.getElementById("res");
+    var elrqres = document.getElementById("rqres");
 
     function call(params) {
       console.log(params);
@@ -22,7 +24,18 @@
         str = params.basic.explains.join(',')
       else
         str = params.translation.join(',')
+
+      var rqres = '';
+      if (params.basic && params.basic.explains)
+        rqres = '基础翻译：' + params.basic.explains.join(',')+'<br/>';
+      rqres += '翻译：' + params.translation.join(',') + '<br/>';
+      rqres += 'web翻译：<br/>';
+      for (let i = 0; i < params.web.length; i++) {
+        rqres += params.web[i].key + '：' + params.web[i].value.join(',') + '<br/>'
+
+      }
       res.innerHTML = "查询的变量名结果为：" + str;
+      elrqres.innerHTML = "接口返回数据为：<br/>" + rqres;
     }
 
     function fun_send() {
