@@ -27,12 +27,16 @@
 
       var rqres = '';
       if (params.basic && params.basic.explains)
-        rqres = '基础翻译：' + params.basic.explains.join(',')+'<br/>';
+        rqres = '基础翻译：' + params.basic.explains.join(',') + '<br/>';
       rqres += '翻译：' + params.translation.join(',') + '<br/>';
       rqres += 'web翻译：<br/>';
-      for (let i = 0; i < params.web.length; i++) {
-        rqres += params.web[i].key + '：' + params.web[i].value.join(',') + '<br/>'
+      if (params.web) {
+        for (let i = 0; i < params.web.length; i++) {
+          rqres += params.web[i].key + '：' + params.web[i].value.join(',') + '<br/>'
 
+        }
+      } else {
+        rqres += '无';
       }
       res.innerHTML = "查询的变量名结果为：" + str;
       elrqres.innerHTML = "接口返回数据为：<br/>" + rqres;
