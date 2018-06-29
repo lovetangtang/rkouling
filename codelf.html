@@ -17,7 +17,6 @@
 
     function call(params) {
       console.log(params);
-      console.log(params.basic.explains.join(','));
       var str = '';
       if (params.basic && params.basic.explains)
         str = params.basic.explains.join(',')
@@ -28,7 +27,6 @@
 
     function fun_send() {
       var val = document.getElementById("seaval").value;
-      console.log(val);
       var url =
         `https://fanyi.youdao.com/openapi.do?callback=call&keyfrom=Codelf&key=2023743559&type=data&doctype=jsonp&version=1.1&q=${val}&_=1530179380702`
       var script = document.createElement("script");
