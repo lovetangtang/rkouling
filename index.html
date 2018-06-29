@@ -9,14 +9,26 @@
 </head>
 
 <body>
-  <button onclick="fun_open('test')" style="width: 100px;height: 100px;margin: 10px">测试页面</button>
+  <button onclick="fun_open('test1')" style="width: 100px;height: 100px;margin: 10px">测试页面1</button>
+
+  <button onclick="fun_open('test2')" style="width: 100px;height: 100px;margin: 10px">测试页面2</button>
+
   <button onclick="fun_open('codelf')" style="width: 100px;height: 100px;margin: 10px">变量命名</button>
   <script>
     function fun_open(type) {
-      if (type == "codelf") {
+
+      switch (type) {
+        case "codelf":
         window.location.href = "./codelf.html";
-      } else {
+          break;
+        case "test1":
         window.location.href = "./game.html";
+          break;
+        case "test2":
+        window.location.href = "./layout.html";
+          break;
+        default:
+          break;
       }
     }
   </script>

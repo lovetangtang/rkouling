@@ -43,6 +43,13 @@
       border-right: 1px solid rebeccapurple;
     }
 
+    .mztopcs {
+      background-color: rebeccapurple;
+    }
+    .mzbomcs {
+      background-color: rosybrown;
+    }
+
     .box-bottom {
       align-items: flex-end;
       height: 100%
@@ -69,20 +76,20 @@
     <div class="box-img"></div>
     <div class="box-top">
       <div class="box">
-        <div @click="fun_checktruetop(1)" name="top1" class="box-cell box-bctb"></div>
-        <div @click="fun_checktruetop(2)" name="top2" class="box-cell box-bctb"></div>
-        <div @click="fun_checktruetop(3)" name="top3" class="box-cell box-bctb"></div>
-        <div @click="fun_checktruetop(4)" name="top4" class="box-cell box-bctb"></div>
-        <div @click="fun_checktruetop(5)" name="top5" class="box-cell box-bctb"></div>
-        <div @click="fun_checktruetop(6)" name="top6" class="box-cell box-bctb box-bbr"></div>
+        <div @click="fun_checktruetop(1,$event)" ref="top1" class="box-cell box-bctb"></div>
+        <div @click="fun_checktruetop(2,$event)" ref="top2" class="box-cell box-bctb"></div>
+        <div @click="fun_checktruetop(3,$event)" ref="top3" class="box-cell box-bctb"></div>
+        <div @click="fun_checktruetop(4,$event)" ref="top4" class="box-cell box-bctb"></div>
+        <div @click="fun_checktruetop(5,$event)" ref="top5" class="box-cell box-bctb"></div>
+        <div @click="fun_checktruetop(6,$event)" ref="top6" class="box-cell box-bctb box-bbr"></div>
       </div>
       <div class="box box-bottom ">
-        <div @click="fun_checktruebom(1)" name="bom1" class="box-cell box-bcbb"></div>
-        <div @click="fun_checktruebom(2)" name="bom2" class="box-cell box-bcbb"></div>
-        <div @click="fun_checktruebom(3)" name="bom3" class="box-cell box-bcbb"></div>
-        <div @click="fun_checktruebom(4)" name="bom4" class="box-cell box-bcbb"></div>
-        <div @click="fun_checktruebom(5)" name="bom5" class="box-cell box-bcbb"></div>
-        <div @click="fun_checktruebom(6)" name="bom6" class="box-cell box-bcbb box-bbbr"></div>
+        <div @click="fun_checktruebom(1,$event)" ref="bom1" class="box-cell box-bcbb"></div>
+        <div @click="fun_checktruebom(2,$event)" ref="bom2" class="box-cell box-bcbb"></div>
+        <div @click="fun_checktruebom(3,$event)" ref="bom3" class="box-cell box-bcbb"></div>
+        <div @click="fun_checktruebom(4,$event)" ref="bom4" class="box-cell box-bcbb"></div>
+        <div @click="fun_checktruebom(5,$event)" ref="bom5" class="box-cell box-bcbb"></div>
+        <div @click="fun_checktruebom(6,$event)" ref="bom6" class="box-cell box-bcbb box-bbbr"></div>
       </div>
     </div>
   </div>
@@ -199,13 +206,14 @@
             return this.fun_getresbom();
           }
         },
-        fun_checktruetop: function (v) {
+        fun_checktruetop: function (v,e) {
           if (this.wintype == 1) {
             alert("红色方已赢了")
             return;
           }
           if (this.array.indexOf(v) > -1) {
             this.xxarray.push(v);
+            e.target.className+=' mztopcs'
             if (this.xxarray.length >= 3) {
               this.wintype = 0;
               alert("摧毁成功蓝色方")
@@ -216,13 +224,14 @@
             alert("很遗憾，没打中")
           }
         },
-        fun_checktruebom: function (v) {
+        fun_checktruebom: function (v,e) {
           if (this.wintype == 0) {
             alert("蓝色方已赢了")
             return;
           }
           if (this.array_bom.indexOf(v) > -1) {
             this.xxarray_bom.push(v);
+            e.target.className+=' mzbomcs'
             if (this.xxarray_bom.length >= 3) {
               this.wintype = 1;
               alert("摧毁成功红色方")
