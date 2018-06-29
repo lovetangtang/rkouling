@@ -19,8 +19,12 @@
       cursor: pointer;
     }
 
-    .box-cell:hover {
+    .box-bctb:hover {
       background-color: rebeccapurple;
+    }
+
+    .box-bcbb:hover {
+      background-color: rosybrown;
     }
 
     .box-bctb {
@@ -46,6 +50,7 @@
     .mztopcs {
       background-color: rebeccapurple;
     }
+
     .mzbomcs {
       background-color: rosybrown;
     }
@@ -67,6 +72,10 @@
       height: 100px;
       background-image: url('dw.png');
       background-size: 100%;
+    }
+
+    .grybgcs {
+      background-color: gainsboro;
     }
   </style>
 </head>
@@ -116,6 +125,9 @@
         array_bom: [],
         xxarray: [],
         xxarray_bom: [],
+        topstatus: false,
+        bomstatus: true,
+        firstdown: 0
       },
       mounted() {
         this.$nextTick(() => {
@@ -206,14 +218,31 @@
             return this.fun_getresbom();
           }
         },
-        fun_checktruetop: function (v,e) {
+        fun_checktruetop: function (v, e) {
+          this.topstatus = true;
+          if(this.firstdown==0){
+            alert("蓝色先方攻击")
+            return;
+          }
+          this.firstdown=-1;
+          if (!this.bomstatus && this.wintype == -1) {
+            alert("该蓝色方攻击")
+            return;
+          }
+          this.bomstatus = false;
+          if (this.wintype == 0) {
+            alert("红色方已赢了");
+            this.bomstatus = true;
+            return;
+          }
           if (this.wintype == 1) {
-            alert("红色方已赢了")
+            alert("蓝色方已赢了");
+            this.bomstatus = true;
             return;
           }
           if (this.array.indexOf(v) > -1) {
             this.xxarray.push(v);
-            e.target.className+=' mztopcs'
+            e.target.className += ' mztopcs'
             if (this.xxarray.length >= 3) {
               this.wintype = 0;
               alert("摧毁成功蓝色方")
@@ -222,16 +251,34 @@
             alert(`恭喜你，摧毁成功${this.xxarray.length}次`)
           } else {
             alert("很遗憾，没打中")
+            e.target.className += ' grybgcs';
           }
         },
-        fun_checktruebom: function (v,e) {
+        fun_checktruebom: function (v, e) {
+          this.bomstatus = true;
+          if(this.firstdown==1){
+            alert("红色方攻击")
+            return;
+          }
+          this.firstdown=-1;
+          if (!this.topstatus && this.wintype == -1) {
+            alert("该红色方攻击")
+            return;
+          }
+          this.topstatus = false;
           if (this.wintype == 0) {
-            alert("蓝色方已赢了")
+            alert("红色方已赢了");
+            this.topstatus = true;
+            return;
+          }
+          if (this.wintype == 1) {
+            alert("蓝色方已赢了");
+            this.bomstatus = true;
             return;
           }
           if (this.array_bom.indexOf(v) > -1) {
             this.xxarray_bom.push(v);
-            e.target.className+=' mzbomcs'
+            e.target.className += ' mzbomcs'
             if (this.xxarray_bom.length >= 3) {
               this.wintype = 1;
               alert("摧毁成功红色方")
@@ -239,7 +286,8 @@
             }
             alert(`恭喜你，摧毁成功${this.xxarray_bom.length}次`)
           } else {
-            alert("很遗憾，没打中")
+            alert("很遗憾，没打中");
+            e.target.className += ' grybgcs';
           }
         }
       }
