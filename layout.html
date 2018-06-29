@@ -14,7 +14,7 @@
     }
 
     .box-cell {
-      height: 200px;
+      height: 150px;
       flex: 1;
       cursor: pointer;
     }
@@ -61,7 +61,7 @@
     }
 
     .box-top {
-      height: 550px;
+      height: 400px;
       display: flex;
       flex: 1;
       flex-direction: column;
@@ -69,7 +69,7 @@
 
     .box-img {
       width: 100%;
-      height: 100px;
+      height: 80px;
       background-image: url('dw.png');
       background-size: 100%;
     }
@@ -101,6 +101,7 @@
         <div @click="fun_checktruebom(6,$event)" ref="bom6" class="box-cell box-bcbb box-bbbr"></div>
       </div>
     </div>
+    <div class="box-img"></div>
   </div>
 
   <script src="vue.js"></script>
@@ -220,11 +221,11 @@
         },
         fun_checktruetop: function (v, e) {
           this.topstatus = true;
-          if(this.firstdown==0){
+          if (this.firstdown == 0) {
             alert("蓝色先方攻击")
             return;
           }
-          this.firstdown=-1;
+          this.firstdown = -1;
           if (!this.bomstatus && this.wintype == -1) {
             alert("该蓝色方攻击")
             return;
@@ -256,11 +257,11 @@
         },
         fun_checktruebom: function (v, e) {
           this.bomstatus = true;
-          if(this.firstdown==1){
+          if (this.firstdown == 1) {
             alert("红色方攻击")
             return;
           }
-          this.firstdown=-1;
+          this.firstdown = -1;
           if (!this.topstatus && this.wintype == -1) {
             alert("该红色方攻击")
             return;
