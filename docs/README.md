@@ -5,11 +5,11 @@
 
 
 
-[测试页面1](game.html)
+[测试页面1](https://lovetang.top/view/game.html)
 
-[测试页面2](https://github.com/docsifyjs/docsify/issues/78)
+[测试页面2](https://lovetang.top/view/layout.html)
 
-[测试页面](https://github.com/docsifyjs/docsify/issues/78)
+[变量命名](https://lovetang.top/view/codelf.html)
 
-[测试页面](https://github.com/docsifyjs/docsify/issues/78)
+[js算法](https://lovetang.top/view/algorithm.html)
 
