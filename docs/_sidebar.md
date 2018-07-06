@@ -1,7 +1,9 @@
 * [前言](/home.md)
 * 前端代码
 
-  * [javascript](/h5home.md)
+  * javascript
+    * [概念](/javascript.md)
+    * [算法](/javascript.md)
   * [界面](/h5order.md)
   * [后台系统框架](/h5my.md)
   * [移动端框架](/h5my.md)
@@ -17,7 +19,9 @@
   * [webpack语法](/h5home.md)
   * [yarn语法](/h5home.md)
   * [markdown语法](/h5home.md)
-* 学习资源
-  * [网址](/h5home.md)
+* 其他信息
+  * [学习资源网址](/h5home.md)
+  * [个人总结](/h5home.md)
+  * [更新](/h5home.md)
 
 
