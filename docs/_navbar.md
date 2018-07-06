@@ -1,0 +1,6 @@
+- Translations
+  - [:cn: 中文](/)
+  - [:uk: English](/zh-cn/)
+  - [:de: Deutsch](/de-de/)
+  - [:es: Spanish](/es/)
+  - [:ru: Russian](/ru/)

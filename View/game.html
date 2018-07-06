@@ -6,16 +6,16 @@
 </head>
 
 <body>
-  <script src="./cax.js"></script>
-  <script src="./to.js"></script>
+  <script src="../js/cax.js"></script>
+  <script src="../js/to.js"></script>
   <script>
     var stage = new cax.Stage(800, 800, 'body')
-    var bitmap = new cax.Bitmap('./wepay-diy.jpg', function () {
+    var bitmap = new cax.Bitmap('../image/wepay-diy.jpg', function () {
       var eio = To.easing.elasticInOut
       To.get(bitmap).animate('rubber').start()
     })
 
-    var bitmap2 = new cax.Bitmap('./wepay-diy.jpg', function () {
+    var bitmap2 = new cax.Bitmap('../image/wepay-diy.jpg', function () {
       var eio = To.easing.elasticInOut
       To.get(bitmap2).animate('rubber').start()
     })

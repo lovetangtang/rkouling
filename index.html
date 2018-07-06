@@ -10,22 +10,23 @@
 
 <body>
   <button onclick="fun_open('test1')" style="width: 100px;height: 100px;margin: 10px">测试页面1</button>
-
   <button onclick="fun_open('test2')" style="width: 100px;height: 100px;margin: 10px">测试页面2</button>
-
   <button onclick="fun_open('codelf')" style="width: 100px;height: 100px;margin: 10px">变量命名</button>
+  <button onclick="fun_open('algorithm')" style="width: 100px;height: 100px;margin: 10px">js算法</button>
   <script>
     function fun_open(type) {
-
       switch (type) {
         case "codelf":
-          window.location.href = "./codelf.html";
+          window.location.href = "./view/codelf.html";
           break;
         case "test1":
-          window.location.href = "./game.html";
+          window.location.href = "./view/game.html";
           break;
         case "test2":
-          window.location.href = "./layout.html";
+          window.location.href = "./view/layout.html";
+          break;
+        case "algorithm":
+          window.location.href = "./view/algorithm.html";
           break;
         default:
           break;
