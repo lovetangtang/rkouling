@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
-
+<script>
+  window.location.href = './docs';
+</script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +11,14 @@
 </head>
 
 <body>
-  <button onclick="fun_open('test1')" style="width: 100px;height: 100px;margin: 10px">测试页面1</button>
+  <!-- <button onclick="fun_open('test1')" style="width: 100px;height: 100px;margin: 10px">测试页面1</button>
   <button onclick="fun_open('test2')" style="width: 100px;height: 100px;margin: 10px">测试页面2</button>
   <button onclick="fun_open('codelf')" style="width: 100px;height: 100px;margin: 10px">变量命名</button>
-  <button onclick="fun_open('algorithm')" style="width: 100px;height: 100px;margin: 10px">js算法</button>
+  <button onclick="fun_open('algorithm')" style="width: 100px;height: 100px;margin: 10px">js算法</button> -->
   <script>
-    window.location.href='./docs';
+    window.location.href = './docs';
+    return;
+
     function fun_open(type) {
       switch (type) {
         case "codelf":
