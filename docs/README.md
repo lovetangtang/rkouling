@@ -1,10 +1,3 @@
-表头|表头|表头|jj
----|:--:|---:
-内容|内容|内容|内容
-内容|内容|内容|内容
-
-
-
 [测试页面1](https://lovetang.top/view/game.html)
 
 [测试页面2](https://lovetang.top/view/layout.html)
