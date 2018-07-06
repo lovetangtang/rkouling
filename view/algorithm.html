@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //快速排序
+    //思路:
+    // - 随机选择数组中的一个数 A，以这个数为基准
+    // - 其他数字跟这个数进行比较，比这个数小的放在其左边，大的放到其右边
+    // - 经过一次循环之后，A 左边为小于 A 的，右边为大于 A 的
+    // - 这时候将左边和右边的数再递归上面的过程
+    var fun_kspx = function () {
+      function quickSort(arr) {
+        if (arr.length <= 1) {
+          return arr;
+        }
+        let pivotIndex = Math.floor(arr.length / 2);
+        let pivot = arr.splice(pivotIndex, 1)[0];
+        let left = [];
+        let right = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (pivot > arr[i]) {
+            left.push(arr[i]);
+          } else {
+            right.push(arr[i])
+          }
+        }
+        return quickSort(left).concat(pivot, quickSort(right));
+      }
+      return function exec(array) {
+        //const array = [33, 22, 66, 12, 34, 89, 13, 52];
+        return quickSort(array);
+      }
+    }
+    var kspx = new fun_kspx();
+    console.log(kspx([33, 22, 66, 12, 34, 89, 13, 52]));
+    // 二分排序法
+    // 二分查找法主要是解决「在一堆有序的数中找出指定的数」这类问题，不管这些数是一维数组还是多维数组，只要有序，就可以用二分查找来优化。
+    // 二分查找是一种「分治」思想的算法，大概流程如下：
+    // 数组中排在中间的数字 A，与要找的数字比较大小
+    // 因为数组是有序的，所以： a) A 较大则说明要查找的数字应该从前半部分查找 b) A
+    // 较小则说明应该从查找数字的后半部分查找
+    // 这样不断查找缩小数量级（扔掉一半数据），直到找完数组为止
+
+    /*
+    题目：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。
+    请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+    */
+    var fun_erfcz = function (target, arr) {
+      let i = 0;
+      let j = arr.length - 1;
+      while (j >= 0 && i < arr.length) {
+        if (arr[i][j] < target) {
+          i++;
+        } else if (arr[i][j] > target) {
+          j--;
+        } else
+          return true;
+      }
+      return false;
+    }
+    console.log(fun_erfcz(24, [
+      [1, 2, 3, 4],
+      [5, 9, 10, 11],
+      [13, 20, 21, 23]
+    ]));
+    /*
+    测试用例
+    console.log(Find(10, [
+    [1, 2, 3, 4], 
+    [5, 9, 10, 11], 
+    [13, 20, 21, 23]
+    ]));
+    */
+
+    /*
+    解析url后的参数
+    */
+    var fun_geturlparam = function (url) {
+      let obj = [];
+      let arr = url.split('?');
+      if (arr.length < 0)
+        return "无参数"
+      let total = arr[1].split('&');
+      for (let i = 0; i < total.length; i++) {
+        var single = total[i].split('=');
+        let lv = single[0];
+        let rv = single[1]
+        obj[lv] = decodeURI(rv);
+      }
+      return obj;
+    }
+    function parseParam(url) {
+      let obj = {};
+      let arr = url.split("?");
+      if (arr.length == 1) { //判断没有问号
+        return "无参数"
+      }
+      let total = arr[1].split("&");
+      for (let i = 0; i < total.length; i++) {
+        let single = total[i].split("=");
+        if (single[0] == '') { //判断有？但是没有参数
+          return '无参数'
+        }
+        if (!single[1]) {
+          obj[single[0]] = true;
+        } else {
+          if (obj[single[0]]) {
+            let concat
+            if (!Array.isArray(obj[single[0]])) { //判断是否数组
+              concat = [obj[single[0]]]
+            } else {
+              concat = obj[single[0]];
+            }
+            concat.push(single[1]);
+            concat = new Set(concat);
+            concat = Array.from(concat) //数组去重
+            obj[single[0]] = concat
+          } else {
+            obj[single[0]] = decodeURI(single[1]) //进行转码
+          }
+        }
+      }
+      return obj
+    }
+    var url = 'http://www.baidu.com/?user=huixin&id=123&id??=456&city=%E5%8C%97%E4%BA%AC&enabled';
+    var params = parseParam(url)
+    console.log(params)
+    console.log(params['city'])
+  </script>
+</body>
+
+</html>

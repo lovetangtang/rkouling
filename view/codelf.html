@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>变量名查询</title>
+</head>
+
+<body>
+  <textarea id="seaval" rows="7" cols="60" onkeypress="getKey();" placeholder="请输入要查询的关键字"></textarea>
+  <button onclick="fun_send()">确认查询</button>
+  <div id="res" style="font-size: 1.3em;color: mediumslateblue"></div>
+  <div id="rqres" style="font-size: 1.3em;color:palevioletred"></div>
+  <script>
+    var res = document.getElementById("res");
+    var elrqres = document.getElementById("rqres");
+
+    function getKey() {
+      if (event.keyCode == 13) {
+        fun_send();
+      }
+    }
+
+    function call(params) {
+      console.log(params);
+      var str = '';
+      if (params.basic && params.basic.explains)
+        str = params.basic.explains.join(',')
+      else
+        str = params.translation.join(',')
+
+      var rqres = '';
+      if (params.basic && params.basic.explains)
+        rqres = '基础翻译：' + params.basic.explains.join(',') + '<br/>';
+      rqres += '翻译：' + params.translation.join(',') + '<br/>';
+      rqres += 'web翻译：<br/>';
+      if (params.web) {
+        for (let i = 0; i < params.web.length; i++) {
+          rqres += params.web[i].key + '：' + params.web[i].value.join(',') + '<br/>'
+        }
+      } else {
+        rqres += '无';
+      }
+      res.innerHTML = "查询的变量名结果为：" + str;
+      elrqres.innerHTML = "接口返回数据为：<br/>" + rqres;
+    }
+
+    function fun_send() {
+      var val = document.getElementById("seaval").value;
+      var url =
+        `https://fanyi.youdao.com/openapi.do?callback=call&keyfrom=Codelf&key=2023743559&type=data&doctype=jsonp&version=1.1&q=${val}&_=1530179380702`
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = url;
+      document.body.appendChild(script);
+    }
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4a409462ad4a2a6d84b65fd51b67cba5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script src=""></script>
+
+</body>
+
+</html>

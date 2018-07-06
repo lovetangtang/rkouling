@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LOVE</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row col-md-3"></div>
+        <div class="row col-md-6">
+            <div class="row question">
+                <div class="col-md-6 col-xs-12">
+                    <p style="line-height: 50px;font-size: 10px;">“小哥哥，我观察你很久了”</p>
+                    <p style="line-height: 50px;font-size: 20px;">做我们男盆友好不好？</p>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <img src="../image/love.png" alt="" style="height: 200px;margin: 5px">
+                </div>
+            </div>
+            <div class="row question" style="margin-top: 20px;">
+                <div class="col-md-6 col-xs-6" style="text-align: center;">
+                    <button type="button" class="btn btn-success" style="width: 80%" id="no">好</button>
+                </div>
+                <div class="col-md-6 col-xs-6" style="text-align: center;">
+                    <button type="button" class="btn btn-danger" style="width: 80%" id="ok">不好</button>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12 hide" id="success">
+                <img src="../image/love.png" alt="" style="width: 100%;">
+                <div id="res" class="hide" style="color: red;font-size: 1.3em;margin-top: 2em">我们俩归你了</div>
+            </div>
+        </div>
+
+        <div class="row col-md-3"></div>
+
+    </div>
+    <script>
+        var i = 1;
+        var ok = false;
+        $(document).ready(function () {
+            $("#no").click(function () {
+                alert("真的吗？你答应了？");
+                $(".question").addClass('hide');
+                $("#success").removeClass('hide');
+                $("#res").removeClass('hide');
+                ok = true;
+            });
+            $("#ok").click(function () {
+                switch (i) {
+                    case 1:
+                        alert("工资上交");
+                        break;
+                    case 2:
+                        alert("家务全包");
+                        break;
+                    case 3:
+                        alert("房产证写你的名字");
+                        break;
+                    case 4:
+                        alert("掉水里不用救我，救你麻麻！");
+                        break;
+                    default:
+                        alert("答应我吧");
+                }
+                i++;
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <script src="../js/cax.js"></script>
+  <script src="../js/to.js"></script>
+  <script>
+    var stage = new cax.Stage(800, 800, 'body')
+    var bitmap = new cax.Bitmap('../image/wepay-diy.jpg', function () {
+      var eio = To.easing.elasticInOut
+      To.get(bitmap).animate('rubber').start()
+    })
+
+    var bitmap2 = new cax.Bitmap('../image/wepay-diy.jpg', function () {
+      var eio = To.easing.elasticInOut
+      To.get(bitmap2).animate('rubber').start()
+    })
+
+
+    var bitmap1 = bitmap;
+    bitmap1.x = 150
+    bitmap1.y = 200
+    bitmap1.originX = 120
+    bitmap1.originY = 40
+    bitmap1.cursor = 'pointer'
+
+    var bitmap2 = bitmap2;
+    bitmap2.x = 150
+    bitmap2.y = 300
+    bitmap2.originX = 80
+    bitmap2.originY = 30
+    bitmap2.cursor = 'pointer'
+
+    stage.add(bitmap1)
+    stage.add(bitmap2)
+
+    bitmap.on('click', () => {
+      alert('wepay')
+    })
+    var x_py = 10;
+    var y_py = 10;
+    cax.setInterval(() => {
+      x_py -= 1;
+      y_py -= 1;
+      bitmap1.originX = x_py
+      // bitmap1.originY = y_py
+      // bitmap1.originY=y_py;
+
+      bitmap2.originX = x_py
+      // bitmap2.originY = y_py
+      // bitmap2.originY=y_py;
+      stage.update()
+    }, 100)
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4a409462ad4a2a6d84b65fd51b67cba5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</body>
+
+</html>
