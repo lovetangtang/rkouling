@@ -1,12 +1,12 @@
-![logo](_media/icon.svg)
+![logo](logo.svg?w=1)
 
-# docsify <small>0.0.0</small>
+# 糖糖总结 <small>0.0.0</small>
 
-> A magical documentation site generator.
+> 一个神奇的总结.
 
-* Simple and lightweight (~19kB gzipped)
-* No statically built html files
-* Multiple themes
+* 主要介绍所学编程语言，框架，算法。
+* 部分内容未经考证，请谨慎观看
+* 偶尔更新下我的github项目
 
-[GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](#docsify)
+[GitHub](https://github.com/lovetangtang)
+[Get Started](#home)
