@@ -9,4 +9,4 @@
 * 偶尔更新下我的github项目
 
 [GitHub](https://github.com/lovetangtang)
-[Get Started](#home)
+[Get Started](/home.md)
